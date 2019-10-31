@@ -1,0 +1,21 @@
+<form [formGroup]="profileForm">
+  
+    <label>
+      name:
+      <input type="text" formControlName="name">
+    </label>
+  
+    <label>
+      picture
+      <input type="text" formControlName="picture">
+    </label>
+
+    <label>
+        description
+        <input type="text" formControlName="description">
+      </label>
+  </form>
+  <button mat-button (click)="creerRecipe()">creer</button>
+  {{profileForm.get('name').value | uppercase}}
+  {{profileForm.get('picture').value | titlecase }}
+  {{profileForm.get('description').value | lowercase}}

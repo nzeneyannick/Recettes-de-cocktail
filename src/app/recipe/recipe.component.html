@@ -1,0 +1,40 @@
+<mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{recipe.name}}</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="recipe.picture" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{recipe.description}}
+           
+          </p>
+          <ul>
+              <li *ngFor="let ingredient of recipe.ingredients ">
+                  {{ ingredient.quantity }}  {{ ingredient.unit }} {{ ingredient.name }} 
+              </li>
+          </ul>
+
+          <ul *ngIf="status">
+
+              <li *ngFor="let instruction of recipe.instructions ">
+                  {{ instruction }} 
+              </li>
+          </ul>
+
+          
+         
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          <button mat-button (click)="toggle()">Show/Hide </button>         
+          <a routerLink="/recipes/{{ recipe.id }}" routerLinkActive="active">
+            <button mat-button>Details</button>            
+          </a>
+          <button mat-button (click)="deleteRecette()">Delete</button>  
+          
+        </mat-card-actions>
+      </mat-card>
+      
